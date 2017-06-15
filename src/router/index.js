@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import store from '@/vuex/store'
-
-import Hello from '@/components/Hello'
+//页面目录
+import Home from '@/components/Home'
 import Error from '@/components/Error'
+
 
 Vue.use(Router)
 
@@ -14,11 +15,10 @@ history.setItem('/', 0)
 
 
 const router = new Router({
-    mode: 'history',
     routes: [{
         path: '/',
-        name: 'Hello',
-        component: Hello
+        name: '号牌查询',
+        component: Home
     }, { //** 404页面 */
         path: '*',
         component: Error,
