@@ -23,8 +23,6 @@
         ButtonTabItem,
         ViewBox,
         XHeader,
-        Tabbar,
-        TabbarItem,
         Loading,
         TransferDom
     } from 'vux'
@@ -42,8 +40,6 @@
             ButtonTabItem,
             ViewBox,
             XHeader,
-            Tabbar,
-            TabbarItem,
             Loading,
         },
         methods: {
