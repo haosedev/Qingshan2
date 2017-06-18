@@ -1,7 +1,7 @@
 {
-  "name": "VueVxBase",
+  "name": "Qingshan",
   "version": "1.0.0",
-  "description": "VueVxBase",
+  "description": "Qingshan",
   "author": "Haosedev <530178@qq.com>",
   "private": true,
   "scripts": {
@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "fastclick": "^1.0.6",
+    "open-browser-webpack-plugin": "^0.0.5",
     "vue": "^2.2.2",
     "vue-router": "^2.2.0",
     "vuex": "^2.1.1",
