@@ -2,21 +2,40 @@
     <div>
         <search @result-click="resultClick" @on-change="getResult" :results="results" v-model="value" position="absolute" auto-scroll-to-top
             top="46px" @on-focus="onFocus" @on-cancel="onCancel" @on-submit="onSubmit" ref="search"></search>
-        <group>
-            <Cell title="牌号" :value="DStr1" v-if='DStr1'></Cell>
-            <Cell title="标准" :value="DStr2" v-if='DStr2'></Cell>
-            <Cell title="版本" :value="DStr3" v-if='DStr3'></Cell>
-        </group>
-        <div style="padding:20px 0;">
-            <card :header="{title:'牌号解读'}" v-if='DStr4'>
-                <p slot="content" class="card-padding context">{{ DStr4 }}</p>
+        <div v-if="!DStr1" style="padding:20px 0;">
+            <card :header="{title:'使用方法'}">
+                <p slot="content" class="card-padding">
+                    <ul class="circle">
+                        <li> 输入牌号查询。您可以输入全部或部分连续的牌号，系统会自动匹配给以选择。自动匹配仅提供相近的9条作为备选。 您输入的牌号越完整越容易快速匹配到您需要的目标。</li>
+                        <li>注意牌号中的字母大小写，系统需要区分大小写。</li>
+                    </ul>
+                </p>
             </card>
-            <card :header="{title:'成分'}" v-if='DStr5'>
-                <p slot="content" class="card-padding context">{{ DStr5 }}</p>
+            <card :header="{title:'牌号解读'}">
+                <p slot="content" class="card-padding">
+                    <ul class="circle">
+                        <li>解读牌号、后缀中的字母、数字含义。送您一双“火眼金睛”，一眼看穿所有牌号的底细。</li>
+                    </ul>
+                </p>
             </card>
-            <card :header="{title:'性能'}" v-if='DStr6'>
-                <p slot="content" class="card-padding context">{{ DStr6 }}</p>
-            </card>
+        </div>
+        <div v-if="DStr1">
+            <group>
+                <Cell title="牌号" :value="DStr1" v-if='DStr1'></Cell>
+                <Cell title="标准" :value="DStr2" v-if='DStr2'></Cell>
+                <Cell title="版本" :value="DStr3" v-if='DStr3'></Cell>
+            </group>
+            <div style="padding:20px 0;">
+                <card :header="{title:'牌号解读'}" v-if='DStr4'>
+                    <p slot="content" class="card-padding context">{{ DStr4 }}</p>
+                </card>
+                <card :header="{title:'成分'}" v-if='DStr5'>
+                    <p slot="content" class="card-padding context">{{ DStr5 }}</p>
+                </card>
+                <card :header="{title:'性能'}" v-if='DStr6'>
+                    <p slot="content" class="card-padding context">{{ DStr6 }}</p>
+                </card>
+            </div>
         </div>
         <div>
             <card>
@@ -102,14 +121,13 @@
         data() {
             return {
                 results: [],
-                version: '0.2.35',
+                version: '0.2.39',
                 DStr1: '',   //牌号
                 DStr2: '',   //标准
                 DStr3: '',   //版本
                 DStr4: '',   //解读
                 DStr5: '',   //成分
                 DStr6: '',   //性能
-                names: ['牌号', '标准', '版本', '牌号解读', '成分', '性能'],
                 data: [
                     {
                         "牌号": "1Cr18Mn8Ni5N",
@@ -4723,5 +4741,14 @@
     .context {
         white-space: pre-line;
         font-size: 13px;
+    }
+
+    .circle {
+        list-style-type: circle;
+        padding-left: 20px;
+    }
+
+    .circle li {
+        padding: 5px;
     }
 </style>
