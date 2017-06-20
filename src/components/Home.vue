@@ -1,16 +1,8 @@
 <template>
     <div>
         <search @result-click="resultClick" @on-change="getResult" :results="results" v-model="value" position="absolute" auto-scroll-to-top
-            top="46px" @on-focus="onFocus" @on-cancel="onCancel" @on-submit="onSubmit" ref="search"></search>
+            top="46px" @on-focus="onFocus" @on-cancel="onCancel" @on-submit="onSubmit" ref="search" placeholder="提供不锈钢产品牌号解释、成分性能快速、准确"></search>
         <div v-if="!DStr1" style="padding:20px 0;">
-            <card :header="{title:'使用方法'}">
-                <p slot="content" class="card-padding">
-                    <ul class="circle">
-                        <li> 输入牌号查询。您可以输入全部或部分连续的牌号，系统会自动匹配给以选择。自动匹配仅提供相近的9条作为备选。 您输入的牌号越完整越容易快速匹配到您需要的目标。</li>
-                        <li>注意牌号中的字母大小写，系统需要区分大小写。</li>
-                    </ul>
-                </p>
-            </card>
             <card :header="{title:'牌号解读'}">
                 <p slot="content" class="card-padding">
                     <ul class="circle">
@@ -18,6 +10,15 @@
                     </ul>
                 </p>
             </card>
+            <card :header="{title:'使用方法'}">
+                <p slot="content" class="card-padding">
+                    <ul class="circle">
+                        <li>输入牌号查询。您可以输入全部或部分连续的牌号，系统会自动匹配给以选择。自动匹配仅提供相近的9条作为备选。 您输入的牌号越完整越容易快速匹配到您需要的目标。</li>
+                        <li>注意牌号中的字母大小写，系统需要区分大小写。</li>
+                    </ul>
+                </p>
+            </card>
+
         </div>
         <div v-if="DStr1">
             <group>
@@ -111,17 +112,17 @@
                 // })
             },
             onFocus() {
-                console.log('on focus');
+                //console.log('on focus');
             },
             onCancel() {
-                console.log('on cancel')
+                //console.log('on cancel')
             }
         },
         name: 'Home',
         data() {
             return {
                 results: [],
-                version: '0.2.39',
+                version: '0.2.41',
                 DStr1: '',   //牌号
                 DStr2: '',   //标准
                 DStr3: '',   //版本
