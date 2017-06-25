@@ -1,6 +1,6 @@
 <template>
     <div>
-        <search @result-click="resultClick" @on-change="getResult" :results="results" v-model="value" position="absolute" auto-scroll-to-top
+        <search @result-click="resultClick" @on-change="getResult" :results="results" v-model="value" position="absolute" :auto-fixed="false"
             top="46px" @on-focus="onFocus" @on-cancel="onCancel" @on-submit="onSubmit" ref="search" placeholder="提供不锈钢产品牌号解释、成分性能快速、准确"></search>
         <div v-if="!DStr1" style="padding:20px 0;">
             <card :header="{title:'牌号解读'}">
@@ -122,7 +122,7 @@
         data() {
             return {
                 results: [],
-                version: '0.2.41',
+                version: '0.2.44',
                 DStr1: '',   //牌号
                 DStr2: '',   //标准
                 DStr3: '',   //版本
