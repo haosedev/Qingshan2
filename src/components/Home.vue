@@ -1,7 +1,8 @@
 <template>
     <div>
-        <search @result-click="resultClick" @on-change="getResult" :results="results" v-model="value" position="absolute" :auto-fixed="false"
-            top="46px" @on-focus="onFocus" @on-cancel="onCancel" @on-submit="onSubmit" ref="search" placeholder="提供不锈钢产品牌号解释、成分性能快速、准确"></search>
+        <search @result-click="resultClick" @on-change="getResult" :results="results" v-model="value" position="absolute"  auto-scroll-to-top
+            top="46px" @on-cancel="onCancel" @on-submit="onSubmit" ref="search" placeholder="提供不锈钢产品牌号解释、成分性能快速、准确"></search>
+
         <div v-if="!DStr1" style="padding:20px 0;">
             <card :header="{title:'牌号解读'}">
                 <p slot="content" class="card-padding">
@@ -80,7 +81,6 @@
                 this.DStr6 = this.data[item.other].性能;
             },
             getResult(val) {
-                //this.results = val ? getResult(this.value) : []
                 val = trim(val);
                 if ((val == '') || (val.length == 0)) {
                     this.results = [];
@@ -101,7 +101,9 @@
                         if (N < 0) break;
                     }
                 }
+
                 this.results = rs;
+                console.log(this.results);
             },
             onSubmit() {
                 // this.$refs.search.setBlur()
