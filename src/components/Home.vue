@@ -124,7 +124,7 @@
         data() {
             return {
                 results: [],
-                version: '0.2.44',
+                version: '0.3.45',
                 DStr1: '',   //牌号
                 DStr2: '',   //标准
                 DStr3: '',   //版本
